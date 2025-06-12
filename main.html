@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>أهلاً بكِ يا ذكية قلبي 💖</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Cairo', sans-serif;
+      background: linear-gradient(to bottom, #fff1f8, #f3faff);
+      color: #4a4a4a;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    .rain-text {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .rain-word {
+      position: absolute;
+      font-size: 18px;
+      color: #e91e63;
+      opacity: 0.3;
+      animation: rain 10s linear infinite;
+    }
+
+    @keyframes rain {
+      0% {
+        transform: translateY(-10%);
+        opacity: 0.4;
+      }
+      100% {
+        transform: translateY(110vh);
+        opacity: 0;
+      }
+    }
+
+    .container {
+      padding: 20px;
+      text-align: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    h2 {
+      color: #c2185b;
+      margin-top: 60px;
+    }
+
+    .quote {
+      background-color: #fff0f5;
+      padding: 15px;
+      border-radius: 15px;
+      margin: 15px auto;
+      font-size: 18px;
+      max-width: 90%;
+      box-shadow: 0 0 10px #f8bbd0;
+    }
+
+    iframe {
+      border-radius: 12px;
+      margin: 25px 0;
+      max-width: 100%;
+    }
+
+    .password-section {
+      background-color: #fce4ec;
+      padding: 25px;
+      border-radius: 15px;
+      margin: 30px auto;
+      width: 90%;
+      max-width: 400px;
+      box-shadow: 0 0 10px #f48fb1;
+    }
+
+    input[type="text"] {
+      width: 80%;
+      padding: 12px;
+      font-size: 16px;
+      border: 2px solid #c2185b;
+      border-radius: 8px;
+      margin-top: 10px;
+    }
+
+    button {
+      background-color: #c2185b;
+      color: white;
+      padding: 10px 25px;
+      border: none;
+      border-radius: 8px;
+      margin-top: 15px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .note {
+      font-size: 14px;
+      color: #777;
+      margin-top: 10px;
+    }
+
+    .celebration {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(255, 255, 255, 0.9);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      color: #d81b60;
+      z-index: 999;
+    }
+
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="celebration" id="celebration">
+    🎉 مبروك يا حب! دخلتي قلبي والموقع 💖
+  </div>
+
+  <div class="rain-text" id="rainContainer"></div>
+
+  <div class="container">
+    <h2>كلمات من القلب لكِ فقط 💌</h2>
+
+    <div class="quote">"لو قلت إني أحبك قليل، لأنك كل شي جميل في حياتي ❤️"</div>
+    <div class="quote">"أنا آسف على كل شي ضايقك، بس حُبك أكبر من أي خطأ 💔"</div>
+    <div class="quote">"غيابك ما يعدي، وعيونك هي الوطن"</div>
+
+    <a href="https://www.youtube.com/watch?v=Xf22vm5AzT4" target="_blank">
+        <img src="https://img.youtube.com/vi/Xf22vm5AzT4/hqdefault.jpg" alt="مشاهدة الأغنية" style="width:100%; max-width:360px; border-radius:16px; box-shadow: 0 8px 20px rgba(0,0,0,0.2);">
+      </a>
+      
+  
+    <div class="password-section">
+      <h3>دخول خاص 💎</h3>
+      <input type="text" id="secretCode" placeholder="أدخلي الرقم السري">
+      <br>
+      <button onclick="checkPassword()">دخول</button>
+      <div class="note">تلميح: الرقم داخل الصندوق اللي بيوصلش 💌</div>
+    </div>
+  </div>
+
+  <script>
+    // احتفال البداية
+    setTimeout(() => {
+      document.getElementById("celebration").classList.add("hidden");
+    }, 5000);
+
+    // تحقق من كلمة المرور
+    function checkPassword() {
+      const code = document.getElementById("secretCode").value;
+      if (code === "92253055") {
+        window.location.href = "final.html";
+      } else {
+        alert("الرقم غلط يا قلب قلبي، دوري فالصندوق!");
+      }
+    }
+
+    // توليد الكلمات المتساقطة
+    const rainWords = ["أحبك", "سامحيني", "قلبي لك", "غيابك صعب", "عيونك", "ذكية", "أحن لك", "اشتقت لك", "أنتِ قلبي"];
+    const rainContainer = document.getElementById("rainContainer");
+
+    for (let i = 0; i < 40; i++) {
+      const word = document.createElement("div");
+      word.classList.add("rain-word");
+      word.textContent = rainWords[Math.floor(Math.random() * rainWords.length)];
+      word.style.left = Math.random() * 100 + "vw";
+      word.style.animationDuration = (Math.random() * 10 + 5) + "s";
+      word.style.fontSize = (Math.random() * 10 + 14) + "px";
+      rainContainer.appendChild(word);
+    }
+  </script>
+
+</body>
+</html>

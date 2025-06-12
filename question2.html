@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>السؤال الثاني 💕</title>
+  <style>
+    body {
+      font-family: 'Cairo', sans-serif;
+      background: linear-gradient(to top right, #fff0f5, #e1f5fe);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 30px 20px;
+      min-height: 100vh;
+      margin: 0;
+      text-align: center;
+    }
+
+    .container {
+      background: white;
+      padding: 25px;
+      border-radius: 16px;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.1);
+      max-width: 500px;
+      width: 100%;
+    }
+
+    h2 {
+      font-size: 24px;
+      margin-bottom: 15px;
+      color: #c2185b;
+    }
+
+    p.description {
+      font-size: 18px;
+      color: #6a1b9a;
+      margin-bottom: 20px;
+    }
+
+    .image-option {
+      margin: 12px;
+      border: 3px solid transparent;
+      border-radius: 12px;
+      transition: 0.3s;
+      cursor: pointer;
+      display: inline-block;
+    }
+
+    .image-option:hover {
+      border-color: #c2185b;
+      transform: scale(1.03);
+    }
+
+    img {
+      width: 160px;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 12px;
+    }
+
+    .message {
+      margin-top: 25px;
+      font-size: 20px;
+      color: #43a047;
+      display: none;
+    }
+
+    @media (max-width: 480px) {
+      img {
+        width: 120px;
+        height: 120px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>يلا نكمل 😍</h2>
+    <p class="description">هذا السؤال شوي اصعب... أي صورة تحسين إنها تشبهني أكثر؟ 🧐</p>
+
+    <div class="image-option" onclick="checkAnswer('1')">
+      <img src="image/images123.jpeg" alt="صورة 1">
+    </div>
+
+    <div class="image-option" onclick="checkAnswer('2')">
+      <img src="image/donkey.jpg" alt="صورة 2">
+    </div>
+
+    <div class="image-option" onclick="checkAnswer('3')">
+      <img src="image/Koala.jpg" alt="صورة 3">
+    </div>
+
+    <div class="message" id="message">أوهههه! والله إنتِ فنانة عرفتيني وانا حمار! ذكية ورهيبة! 💘</div>
+  </div>
+
+  <script>
+    function checkAnswer(choice) {
+      if (choice === '2') {
+        document.getElementById('message').style.display = 'block';
+        setTimeout(() => {
+          window.location.href = "question3.html";
+        }, 2000);
+      } else {
+        alert("والله شكراً بس للأسف غلط! فكري شوي يا نظر عيني");
+      }
+    }
+  </script>
+
+</body>
+</html>

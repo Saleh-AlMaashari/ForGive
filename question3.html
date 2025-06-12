@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>السؤال الثالث 🎬</title>
+  <style>
+    body {
+      font-family: 'Cairo', sans-serif;
+      background: linear-gradient(to top right, #ffe9f0, #e3f2fd);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 30px 20px;
+      min-height: 100vh;
+      margin: 0;
+      text-align: center;
+    }
+
+    .container {
+      background-color: #ffffff;
+      border-radius: 16px;
+      padding: 30px;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.1);
+      max-width: 500px;
+      width: 100%;
+    }
+
+    h2 {
+      font-size: 24px;
+      color: #c2185b;
+      margin-bottom: 15px;
+    }
+
+    p.description {
+      font-size: 18px;
+      color: #6a1b9a;
+      margin-bottom: 20px;
+    }
+
+    .option {
+      background-color: #f3e5f5;
+      border: 2px solid #ab47bc;
+      color: #6a1b9a;
+      padding: 12px 20px;
+      margin: 10px auto;
+      border-radius: 14px;
+      cursor: pointer;
+      font-size: 18px;
+      width: 100%;
+      max-width: 300px;
+      transition: all 0.3s ease;
+    }
+
+    .option:hover {
+      background-color: #ce93d8;
+      color: white;
+    }
+
+    .message {
+      display: none;
+      font-size: 20px;
+      color: #2e7d32;
+      margin-top: 25px;
+    }
+
+    @media (max-width: 480px) {
+      h2 {
+        font-size: 20px;
+      }
+      .option {
+        font-size: 16px;
+        padding: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>نستمر يا روح صالح؟ 🤭</h2>
+    <p class="description">يلا الحين بنشوف إذا تعرفيني او لا: والسؤال يقول.. كيف تعرفي انه صالح مندمج بالفلم 🎥</p>
+
+    <div class="option" onclick="checkAnswer('صح')">لما يسكر الفون يتأخر لحد ما يتصل مره </div>
+    <div class="option" onclick="checkAnswer('خطأ')">يسأل وايد</div>
+    <div class="option" onclick="checkAnswer('خطأ')">يحلل الفلم</div>
+
+    <div class="message" id="message">يا قلبي انتي! دوم تعرفيني حتى وأنا ساكت 😄💘</div>
+  </div>
+
+  <script>
+    function checkAnswer(status) {
+      if (status === 'صح') {
+        document.getElementById("message").style.display = "block";
+        setTimeout(() => window.location.href = "question4.html", 2000);
+      } else {
+        alert("لا لااا، هذي سهلة! حاولي مره ثانية يا حلوة 😘");
+      }
+    }
+  </script>
+
+</body>
+</html>

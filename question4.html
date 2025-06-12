@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>السؤال الرابع 👑</title>
+  <style>
+    body {
+      font-family: 'Cairo', sans-serif;
+      background: linear-gradient(to top right, #fff0f5, #e3f2fd);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 30px 20px;
+      min-height: 100vh;
+      margin: 0;
+      text-align: center;
+    }
+
+    .container {
+      background-color: #ffffff;
+      border-radius: 16px;
+      padding: 30px;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.1);
+      max-width: 500px;
+      width: 100%;
+    }
+
+    h2 {
+      font-size: 24px;
+      color: #c2185b;
+      margin-bottom: 15px;
+    }
+
+    p.description {
+      font-size: 18px;
+      color: #6a1b9a;
+      margin-bottom: 20px;
+    }
+
+    .option {
+      background-color: #fce4ec;
+      border: 2px solid #f06292;
+      color: #6a1b9a;
+      padding: 12px 20px;
+      margin: 10px auto;
+      border-radius: 14px;
+      cursor: pointer;
+      font-size: 18px;
+      width: 100%;
+      max-width: 320px;
+      transition: all 0.3s ease;
+    }
+
+    .option:hover {
+      background-color: #f8bbd0;
+      color: white;
+    }
+
+    .message {
+      display: none;
+      font-size: 20px;
+      color: #2e7d32;
+      margin-top: 25px;
+    }
+
+    @media (max-width: 480px) {
+      h2 {
+        font-size: 20px;
+      }
+      .option {
+        font-size: 16px;
+        padding: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>الحين سؤال ضحكني 😅</h2>
+    <p class="description">كيف كان صالح يلبس المصر؟ 😂 لا تضحكين وايد إذا تذكرتي!</p>
+
+    <div class="option" onclick="checkAnswer('صح')">كأنه تاير</div>
+    <div class="option" onclick="checkAnswer('خطأ')">ما يلبس مصر</div>
+    <div class="option" onclick="checkAnswer('خطأ')">يسويها صغيره ومناسه على راسه</div>
+
+    <div class="message" id="message">ههههه! واضح إن ذاكرتش تضحك وتحبني 😄💘</div>
+  </div>
+
+  <script>
+    function checkAnswer(status) {
+      if (status === 'صح') {
+        document.getElementById("message").style.display = "block";
+        setTimeout(() => window.location.href = "question5.html", 2000);
+      } else {
+        alert("ههههه قريبة جربي مره ثانية!");
+      }
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>أحبك 💖</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Cairo', sans-serif;
+      background: linear-gradient(to bottom right, #fff0f5, #f3e5f5);
+      overflow: hidden;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      text-align: center;
+    }
+
+    .words {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .word {
+      position: absolute;
+      font-size: 16px;
+      color: #d81b60;
+      opacity: 0.3;
+      animation: fall 12s linear infinite;
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translateY(-10%);
+        opacity: 0.3;
+      }
+      100% {
+        transform: translateY(110vh);
+        opacity: 0;
+      }
+    }
+
+    .content {
+      position: relative;
+      z-index: 2;
+      padding: 30px 20px;
+      max-width: 500px;
+    }
+
+    h1 {
+      font-size: 28px;
+      margin-bottom: 20px;
+      color: #ad1457;
+      line-height: 1.6;
+    }
+
+    p {
+      font-size: 18px;
+      margin: 12px 0;
+      color: #4a148c;
+      line-height: 1.6;
+    }
+
+    button {
+      margin-top: 30px;
+      padding: 16px 36px;
+      font-size: 20px;
+      border: none;
+      border-radius: 30px;
+      background-color: #f06292;
+      color: white;
+      font-weight: bold;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #ec407a;
+      transform: scale(1.05);
+    }
+
+    .smile-screen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      background-color: #fff0f5;
+      color: #d81b60;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 999;
+      flex-direction: column;
+      text-align: center;
+      padding: 30px 20px;
+      animation: fadeIn 0.5s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .charge-bar {
+      width: 90%;
+      max-width: 400px;
+      height: 20px;
+      background-color: #fce4ec;
+      border-radius: 10px;
+      margin-top: 20px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .charge-fill {
+      height: 100%;
+      width: 0%;
+      background-color: #d81b60;
+      border-radius: 10px;
+      transition: width 1s ease-in-out;
+    }
+
+    .charge-message {
+      font-size: 20px;
+      margin-top: 20px;
+      animation: popText 1s ease-in-out infinite alternate;
+    }
+
+    @keyframes popText {
+      from { transform: scale(1); }
+      to { transform: scale(1.05); }
+    }
+
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 22px;
+      }
+      p {
+        font-size: 16px;
+      }
+      button {
+        font-size: 18px;
+        padding: 14px 28px;
+      }
+    }
+  </style>
+</head>
+<body>
+</head>
+<body>
+
+  <div class="words" id="wordContainer"></div>
+
+  <div class="content">
+    <h1>يا جميلة الروح والضحكة 💖</h1>
+    <p>تسجيل الدخول هنا غير... لأنش إنتي غير!</p>
+    <p>شوفي عمري لازم تجاوبي على ٧ أسئلة عنّي، بس ها! ترا لازم تضحكي قبل كل شي، لأن ضحكتش هي اللي تفتح كل الآفاق 💫</p>
+    <p>بدون ضحكتش ما أشتغل، ولا أتنفس، ولا أدخل الموقع حتى 😅</p>
+    <button onclick="startSmileSequence()">يلا نسجل الدخول عمري</button>
+  </div>
+
+  <div class="smile-screen" id="smileScreen" style="display: none;">
+    <div class="charge-message" id="chargeMsg">😂 اضحكي حبيبتي... أبغاك تشحنيني ضحك</div>
+    <div class="charge-bar">
+      <div class="charge-fill" id="chargeFill"></div>
+    </div>
+  </div>
+
+  <script>
+    const words = [
+      "أحبك", "سامحيني", "قلبي لك", "ضحكتك حياة", "روحي", "ذكية قلبي", 
+      "أنتِ قلبي", "عيونك نور", "اشتقت لك", "ضحكتك دواء", "ضحكتك تنورني"
+    ];
+
+    const container = document.getElementById('wordContainer');
+    for (let i = 0; i < 50; i++) {
+      const word = document.createElement('div');
+      word.classList.add('word');
+      word.textContent = words[Math.floor(Math.random() * words.length)];
+      word.style.left = Math.random() * 100 + 'vw';
+      word.style.top = '-' + (Math.random() * 100) + 'vh';
+      word.style.fontSize = (Math.random() * 10 + 14) + 'px';
+      word.style.animationDuration = (Math.random() * 10 + 5) + 's';
+      container.appendChild(word);
+    }
+
+    function startSmileSequence() {
+      document.getElementById('smileScreen').style.display = 'flex';
+      let fill = document.getElementById('chargeFill');
+      let msg = document.getElementById('chargeMsg');
+
+      setTimeout(() => {
+        fill.style.width = '25%';
+        msg.innerText = 'ابتسامتش حلوة! بس احتاج ضحكة عشان أكمل الشحن';
+      }, 3000);
+
+      setTimeout(() => {
+        fill.style.width = '50%';
+        msg.innerText = 'يلاااااااا عمري اضحكي! خلي ضروسي تطلع من الفرحة';
+      }, 6000);
+
+      setTimeout(() => {
+        fill.style.width = '75%';
+        msg.innerText = '😍 هييييه، طاقة الحب قربت تكتمل! شوي بس!';
+      }, 9000);
+
+      setTimeout(() => {
+        fill.style.width = '100%';
+        msg.innerText = 'اااااحه كيف ضحكتش حلوة! شحنت قلبي وفتحت البوابة!';
+      }, 12000);
+
+      setTimeout(() => {
+        window.location.href = 'question1.html';
+      }, 15000);
+    }
+  </script>
+
+</body>
+</html>
