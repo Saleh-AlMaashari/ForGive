@@ -173,8 +173,11 @@
     }
 
     // توليد الكلمات المتساقطة
-    const rainWords = ["أحبك", "سامحيني", "قلبي لك", "غيابك صعب", "عيونك", "ذكية", "أحن لك", "اشتقت لك", "أنتِ قلبي"];
-    const rainContainer = document.getElementById("rainContainer");
+    const rainWords = [
+      "احبش", "سامحيني", "قلبي لش", "قمري", "روحي", "ذكية قلبي",
+      "أنتِ قلبي", "عيونش نور", "اشتقت لش", "ضحكتش دواء", "ضحكتش حياة",
+      "يا أجمل هدية", "نبض قلبي", "أنتِ سعادتي" // اقتباسات إضافية
+    ];    const rainContainer = document.getElementById("rainContainer");
 
     for (let i = 0; i < 40; i++) {
       const word = document.createElement("div");
