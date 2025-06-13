@@ -4,105 +4,302 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>لكِ... يا حياة قلبي 💖</title>
+  <link href="https://fonts.googleapis.com/css2?family=Changa:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --primary-color: #d8bfd8; /* Thistle */
+      --secondary-color: #ffb6c1; /* LightPink */
+      --text-dark: #4b0082; /* Indigo */
+      --text-light: #6a5acd; /* SlateBlue */
+      --accent-color: #8a2be2; /* BlueViolet */
+      --bg-gradient-start: #fff0f5; /* LavenderBlush */
+      --bg-gradient-end: #e6e6fa; /* Lavender */
+      --card-bg: #ffffffdb;
+      --shadow-color: rgba(0,0,0,0.08);
+      --border-radius: 25px;
+    }
+
     body {
       margin: 0;
-      font-family: 'Cairo', sans-serif;
-      background: linear-gradient(to bottom, #fff0f5, #e1f5fe);
-      color: #4a148c;
+      font-family: 'Changa', sans-serif;
+      background: linear-gradient(to bottom, var(--bg-gradient-start), var(--bg-gradient-end));
+      color: var(--text-dark);
       padding: 20px;
       overflow-x: hidden;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      box-sizing: border-box;
     }
-    h1, h2 {
+
+    h1 {
       text-align: center;
+      color: var(--accent-color);
+      margin-bottom: 25px;
+      font-size: 3.2em;
+      text-shadow: 1px 1px 3px var(--secondary-color);
+      animation: fadeInDown 1.2s ease-out;
+      padding: 0 10px;
+    }
+
+    .subtitle {
+      text-align: center;
+      font-size: 1.4em;
+      color: var(--text-light);
+      margin-bottom: 40px;
+      padding: 0 15px;
+      line-height: 1.6;
+      animation: fadeInUp 1.5s ease-out;
+    }
+
+    .content-wrapper {
+      width: 100%;
+      max-width: 900px;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+
+    .section-card {
+      background-color: var(--card-bg);
+      border-radius: var(--border-radius);
+      padding: 30px;
+      box-shadow: 0 8px 25px var(--shadow-color);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      animation: fadeIn 1.5s ease-out forwards;
+      opacity: 0; /* Start hidden for animation */
+    }
+
+    .section-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+    }
+
+    .section-card h2 {
+      color: var(--accent-color);
       margin-bottom: 15px;
-      animation: fadeInDown 1s ease-in-out;
+      font-size: 2.2em;
+      text-align: center;
+      border-bottom: 2px solid var(--primary-color);
+      padding-bottom: 10px;
     }
-    .gift-section, .story-section {
-      background-color: #ffffffdd;
-      border-radius: 18px;
-      padding: 25px;
-      margin: 25px auto;
-      max-width: 700px;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.12);
-      animation: fadeInUp 1.5s ease-in-out;
+
+    .section-card h3 {
+      color: var(--secondary-color);
+      margin-bottom: 15px;
+      font-size: 1.8em;
+      text-align: right;
+      display: flex;
+      align-items: center;
+      gap: 10px;
     }
-    .gift-section h3 {
-      color: #ad1457;
-      margin-bottom: 10px;
+
+    .section-card h3 i {
+      color: var(--accent-color);
+      font-size: 1.2em;
     }
-    .gift-section p, .story-section p {
-      font-size: 19px;
-      line-height: 1.8;
-      color: #6a1b9a;
+
+    .section-card p {
+      font-size: 1.25em;
+      line-height: 1.9;
+      color: var(--text-dark);
+      text-align: justify;
+      margin-bottom: 15px;
     }
-    ul {
-      padding-right: 20px;
-      font-size: 18px;
+    .section-card p:last-child {
+      margin-bottom: 0;
     }
+
+    .quote-section {
+      text-align: center;
+      background-color: var(--secondary-color);
+      color: white;
+      padding: 40px 25px;
+      border-radius: var(--border-radius);
+      box-shadow: 0 8px 25px var(--shadow-color);
+      margin-top: 30px;
+      animation: fadeIn 2s ease-out forwards;
+      opacity: 0;
+      font-size: 1.6em;
+      line-height: 1.7;
+      font-style: italic;
+      position: relative;
+      overflow: hidden;
+    }
+    .quote-section::before, .quote-section::after {
+      content: "“";
+      font-family: serif;
+      position: absolute;
+      font-size: 8em;
+      color: rgba(255, 255, 255, 0.2);
+      top: 0;
+      line-height: 1;
+      z-index: 0;
+    }
+    .quote-section::before {
+      left: 10px;
+      transform: rotate(180deg);
+    }
+    .quote-section::after {
+      content: "”";
+      right: 10px;
+      bottom: 0;
+    }
+    .quote-section p {
+      position: relative;
+      z-index: 1;
+      color: white; /* Ensure text is white */
+      font-size: 1em; /* Adjust relative to parent */
+    }
+
     .hearts {
       text-align: center;
-      font-size: 32px;
-      animation: pulse 2s infinite;
-      margin-top: 30px;
+      font-size: 3.5em;
+      color: var(--accent-color);
+      animation: pulse 2s infinite ease-in-out;
+      margin: 50px auto;
+      text-shadow: 1px 1px 5px var(--primary-color);
     }
-    @keyframes pulse {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.1); }
-      100% { transform: scale(1); }
-    }
+
     @keyframes fadeInDown {
-      from { opacity: 0; transform: translateY(-20px); }
+      from { opacity: 0; transform: translateY(-30px); }
       to { opacity: 1; transform: translateY(0); }
     }
     @keyframes fadeInUp {
       from { opacity: 0; transform: translateY(40px); }
       to { opacity: 1; transform: translateY(0); }
     }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2.5em;
+      }
+      .subtitle {
+        font-size: 1.2em;
+      }
+      .section-card {
+        padding: 20px;
+        margin: 15px auto;
+      }
+      .section-card h2 {
+        font-size: 1.8em;
+      }
+      .section-card h3 {
+        font-size: 1.5em;
+      }
+      .section-card p {
+        font-size: 1.1em;
+      }
+      .quote-section {
+        font-size: 1.3em;
+        padding: 30px 20px;
+      }
+      .hearts {
+        font-size: 2.8em;
+      }
+    }
+
+    @media (max-width: 480px) {
+      body {
+        padding: 10px;
+      }
+      h1 {
+        font-size: 2em;
+      }
+      .subtitle {
+        font-size: 1em;
+        margin-bottom: 25px;
+      }
+      .section-card {
+        padding: 15px;
+      }
+      .section-card h2 {
+        font-size: 1.6em;
+      }
+      .section-card h3 {
+        font-size: 1.3em;
+      }
+      .section-card p {
+        font-size: 1em;
+      }
+      .quote-section {
+        font-size: 1.1em;
+        padding: 25px 15px;
+      }
+      .hearts {
+        font-size: 2.2em;
+      }
+    }
   </style>
 </head>
 <body>
 
-  <h1>لش انتي... يا حياة قلبي 💖</h1>
-  <p style="text-align:center; font-size: 20px;">يمكن يا حبيبتي بتستغربي من الهدايا الي وصلتش بس هن ما هدايا هن يعتبرن اشياء حبيتش تشاركيني فيهن وبخبرش عنهن بالتفصيل.</p>
+  <h1>لكِ أنتِ... يا حياة قلبي 💖</h1>
+  <p class="subtitle">يمكن يا حبيبتي بتستغربي من الهدايا اللي وصلت لكِ، بس هي ليست مجرد هدايا. هي أجزاء من قلبي أردتُ أن تشاركيني إياها، وسأخبركِ عن كل واحدة بالتفصيل.</p>
 
-  <div class="gift-section">
-    <h3>🧴 اول شي العود</h3>
-    <p>لأن فيه ريحة انا وايد احبها، وقلت بخليها تكون ريحتنا المشتركة. اعرف انش جربتيه قبل بس ما كان بقوته لانه بدون زيت. اللحين متأكد كل مرة تشميه راح تبتسمي، عاد انا أتخيلش تبتسمي، وتفكري فيّني... وتقولي "هنا مرّ صالح .... وش رايش بالثقة 😂".</p>
-  </div>
+  <div class="content-wrapper">
+    <div class="section-card" style="animation-delay: 0.2s;">
+      <h3><i class="fas fa-flask"></i> أولاً: العود 🧴</h3>
+      <p>لأن فيه رائحة أنا وايد أحبها، وقلت بخليها تكون ريحتنا المشتركة. أعرف أنكِ جربتيه من قبل، لكن لم يكن بقوته هذه لأنه بدون زيت. الآن، أنا متأكد أن كل مرة تشمينه راح تبتسمين. عاد أنا أتخيلكِ تبتسمين، وتفكرين فيّ... وتقولين "هنا مرّ صالح .... وش رأيكِ بالثقة 😂".</p>
+    </div>
 
-  <div class="gift-section">
-    <h3>🥭 حلاوة المانجو</h3>
-    <p>أعرف انش تحبي المانجو وانا وايد احب المانجو وجربت هذه الحلاوة وخلتني اعيش طعم المانجو الحقيقي. وحبيت أشاركش طعمها، كأننا نحب نفس الشيء، في المستقبل بتكون هذه الحلاوة نوزعها للأطفال لانه طعمها حلو.</p>
-  </div>
+    <div class="section-card" style="animation-delay: 0.4s;">
+      <h3><i class="fas fa-cookie-bite"></i> ثانياً: حلاوة المانجو 🥭</h3>
+      <p>أعرف أنكِ تحبين المانجو، وأنا وايد أحب المانجو. جربت هذه الحلاوة وخلتني أعيش طعم المانجو الحقيقي. حبيت أشارككِ طعمها، كأننا نحب نفس الشيء. في المستقبل، ستكون هذه الحلاوة نوزعها للأطفال لأن طعمها حلو.</p>
+    </div>
 
-  <div class="gift-section">
-    <h3>🌹الورد</h3>
-    <p>ما قدرت أقول آسف بطريقة عادية... فقلت أقولها بوردة. ناعمة، صامته، لكن توصل كل الكلام اللي ما عرفته أنطقه. ما أريد زعلش يا قلبي، لأني أموت اللف مره إذا عيونش ما كانت مرتاحة. سامحيني يا أغلى ما أملك.</p>
-  </div>
+    <div class="section-card" style="animation-delay: 0.6s;">
+      <h3><i class="fas fa-leaf"></i> ثالثاً: الورد 🌹</h3>
+      <p>لم أستطع أن أقول آسف بطريقة عادية... فقلت أقولها بوردة. ناعمة، صامتة، لكنها توصل كل الكلام اللي لم أستطع أن أنطقه. لا أريد زعلكِ يا قلبي، لأني أموت ألف مرة إذا عيونكِ لم تكن مرتاحة. سامحيني يا أغلى ما أملك.</p>
+    </div>
 
-  <div class="gift-section">
-    <h3>🌮 الناتشوز</h3>
-    <p>سهره، فلم، ضحكة، وانتِ جنبي؟ امزح بس نتخيل ونعيش اننا جنب بعض نفس لما تابعنا الفلم مع بعض في السينما قلبي. الناتشوز صرت اكن له مشاعر كبيره لانه كنا ناكله مع بعض ونتابع يا روحي، وكان يحمل ذكريات عشناها مع بعض... واللحين بغيت اجدد الذكريات ونتابع فلم، نعلق، ونضحك على كل تفصيل... نعيش كأن الدنيا لنا نحن بس.</p>
-  </div>
+    <div class="section-card" style="animation-delay: 0.8s;">
+      <h3><i class="fas fa-film"></i> رابعاً: الناتشوز 🌮</h3>
+      <p>سهرة، فيلم، ضحكة، وأنتِ بجانبي؟ أمزح، ولكن نتخيل ونعيش كأننا جنب بعض نفس لما تابعنا الفيلم مع بعض في السينما يا قلبي. الناتشوز صرت أكن له مشاعر كبيرة لأنه كنا نأكله مع بعض ونتابع يا روحي، وكان يحمل ذكريات عشناها مع بعض... والآن بغيت أجدد الذكريات ونتابع فيلم، نعلق، ونضحك على كل تفصيل... نعيش كأن الدنيا لنا نحن فقط.</p>
+    </div>
 
-  <div class="gift-section">
-    <h3> رسالة من قلبي وختمها من دمي </h3>
-        <p>
-          كتبت لش رسالة بخط يدي، لأن ما في شي أصدق من حرف يطلع من قلب صاحبه.  
-          وكل كلمة فيها كانت اعتذار، حب، ولهفة، واحتياج لرضاش.
-        </p>
-        <p>
-          وفي النهاية... ختمتها ببصمتي، مو بالحبر،  
-          لكن بـ دمي.  
-          عشان أقول لش: هذا مش وعد مؤقت...  
-          هذا وعد حيّ، ينبض، ويقول لش كل مرة تقرينه:
-          "أنا لش... بكل نبضي."
-        </p>
-      </div>
+    <div class="section-card" style="animation-delay: 1.0s;">
+      <h3><i class="fas fa-envelope-open-text"></i> خامساً: رسالة من قلبي وختمها من دمي</h3>
+      <p>
+        كتبت لكِ رسالة بخط يدي، لأن ما في شيء أصدق من حرف يخرج من قلب صاحبه.
+        وكل كلمة فيها كانت اعتذار، حب، ولهفة، واحتياج لرضاكِ.
+      </p>
+      <p>
+        وفي النهاية... ختمتها ببصمتي، ليس بالحبر،
+        لكن بـ دمي.
+        عشان أقول لكِ: هذا ليس وعداً مؤقتاً...
+        هذا وعد حيّ، ينبض، ويقول لكِ كل مرة تقرئينه:
+        "أنا لكِ... بكل نبضي."
+      </p>
+    </div>
+
+    <div class="quote-section" style="animation-delay: 1.2s;">
+      <p>"الحب ليس فقط شعورًا، بل هو فن بناء عالم صغير يضم قلوبًا كبيرة."</p>
+    </div>
+
+    <div class="quote-section" style="animation-delay: 1.4s;">
+      <p>"في كل نبضة من قلبي، أجد ألف سبب لأحبكِ أكثر، ولأعتذر لكِ بصدق."</p>
+    </div>
+
+    <div class="quote-section" style="animation-delay: 1.6s;">
+      <p>"أنتِ القصة الأجمل التي أعيشها، والتفاصيل التي لا تُمَلُّ."</p>
+    </div>
+
   </div>
 
   <div class="hearts">🫀🫀❤️‍🔥❤️‍🔥❣️❣️</div>
 
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </body>
 </html>
