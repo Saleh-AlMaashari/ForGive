@@ -3,13 +3,27 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>أحبك 💖</title>
+  <title>أهلاً بكِ يا ذكية قلبي 💖</title>
+  <link href="https://fonts.googleapis.com/css2?family=Changa:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --primary-color: #d8bfd8; /* Thistle */
+      --secondary-color: #ffb6c1; /* LightPink */
+      --text-dark: #4b0082; /* Indigo */
+      --text-light: #6a5acd; /* SlateBlue */
+      --accent-color: #8a2be2; /* BlueViolet */
+      --bg-gradient-start: #fff0f5; /* LavenderBlush */
+      --bg-gradient-end: #e6e6fa; /* Lavender */
+      --card-bg: #ffffffdb;
+      --shadow-color: rgba(0,0,0,0.08);
+      --border-radius: 25px;
+    }
+
     body {
       margin: 0;
       padding: 0;
-      font-family: 'Cairo', sans-serif;
-      background: linear-gradient(to bottom right, #fff0f5, #f3e5f5);
+      font-family: 'Changa', sans-serif; /* تم التغيير من Cairo */
+      background: linear-gradient(to bottom right, var(--bg-gradient-start), var(--bg-gradient-end)); /* ألوان متناسقة */
       overflow: hidden;
       position: relative;
       display: flex;
@@ -18,6 +32,7 @@
       justify-content: center;
       min-height: 100vh;
       text-align: center;
+      color: var(--text-dark); /* لون النص الأساسي */
     }
 
     .words {
@@ -33,15 +48,15 @@
     .word {
       position: absolute;
       font-size: 16px;
-      color: #d81b60;
-      opacity: 0.3;
+      color: var(--secondary-color); /* لون متناسق */
+      opacity: 0.4; /* زيادة الوضوح قليلا */
       animation: fall 12s linear infinite;
     }
 
     @keyframes fall {
       0% {
         transform: translateY(-10%);
-        opacity: 0.3;
+        opacity: 0.4;
       }
       100% {
         transform: translateY(110vh);
@@ -54,39 +69,51 @@
       z-index: 2;
       padding: 30px 20px;
       max-width: 500px;
+      background-color: var(--card-bg); /* خلفية بيضاء شفافة للبطاقة */
+      border-radius: var(--border-radius); /* حواف دائرية */
+      box-shadow: 0 8px 25px var(--shadow-color); /* ظل ناعم */
+      animation: fadeInScale 1s ease-out; /* حركة ظهور أنيقة */
+    }
+
+    @keyframes fadeInScale {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
     }
 
     h1 {
-      font-size: 28px;
+      font-size: 2.2em; /* حجم أكبر قليلا */
       margin-bottom: 20px;
-      color: #ad1457;
+      color: var(--accent-color); /* لون مميز */
       line-height: 1.6;
+      text-shadow: 1px 1px 3px var(--primary-color);
     }
 
     p {
-      font-size: 18px;
+      font-size: 1.1em; /* حجم أكبر قليلا */
       margin: 12px 0;
-      color: #4a148c;
-      line-height: 1.6;
+      color: var(--text-light); /* لون نص متناسق */
+      line-height: 1.7;
     }
 
     button {
       margin-top: 30px;
       padding: 16px 36px;
-      font-size: 20px;
+      font-size: 1.3em; /* حجم الخط أكبر */
       border: none;
       border-radius: 30px;
-      background-color: #f06292;
+      background-color: var(--secondary-color); /* لون الزر */
       color: white;
       font-weight: bold;
       box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
       cursor: pointer;
-      transition: 0.3s ease;
+      transition: all 0.3s ease; /* تحسين الانتقال */
+      letter-spacing: 1px; /* مسافة بين الحروف */
     }
 
     button:hover {
-      background-color: #ec407a;
-      transform: scale(1.05);
+      background-color: var(--accent-color); /* تغيير اللون عند التحويم */
+      transform: scale(1.05) translateY(-2px); /* تأثير لطيف */
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
     }
 
     .smile-screen {
@@ -95,8 +122,8 @@
       left: 0;
       width: 100%;
       height: 100vh;
-      background-color: #fff0f5;
-      color: #d81b60;
+      background-color: rgba(255, 255, 255, 0.95); /* خلفية شبه شفافة */
+      color: var(--accent-color); /* لون نص متناسق */
       display: flex;
       justify-content: center;
       align-items: center;
@@ -115,48 +142,61 @@
     .charge-bar {
       width: 90%;
       max-width: 400px;
-      height: 20px;
-      background-color: #fce4ec;
-      border-radius: 10px;
-      margin-top: 20px;
+      height: 25px; /* شريط شحن أكبر */
+      background-color: var(--primary-color); /* لون متناسق */
+      border-radius: 12px; /* حواف دائرية أكبر */
+      margin-top: 25px; /* مسافة أكبر */
       overflow: hidden;
       position: relative;
+      box-shadow: inset 0 2px 5px rgba(0,0,0,0.1);
     }
 
     .charge-fill {
       height: 100%;
       width: 0%;
-      background-color: #d81b60;
-      border-radius: 10px;
+      background-color: var(--secondary-color); /* لون التعبئة */
+      border-radius: 12px;
       transition: width 1s ease-in-out;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: bold;
+      font-size: 1.1em;
     }
 
     .charge-message {
-      font-size: 20px;
-      margin-top: 20px;
+      font-size: 1.5em; /* حجم أكبر */
+      margin-top: 25px; /* مسافة أكبر */
+      color: var(--text-dark);
       animation: popText 1s ease-in-out infinite alternate;
+      line-height: 1.5;
     }
 
     @keyframes popText {
-      from { transform: scale(1); }
-      to { transform: scale(1.05); }
+      from { transform: scale(1); opacity: 1; }
+      to { transform: scale(1.05); opacity: 0.9; }
     }
 
     @media (max-width: 480px) {
       h1 {
-        font-size: 22px;
+        font-size: 1.8em;
       }
       p {
-        font-size: 16px;
+        font-size: 1em;
       }
       button {
-        font-size: 18px;
-        padding: 14px 28px;
+        font-size: 1.1em;
+        padding: 12px 24px;
+      }
+      .charge-message {
+        font-size: 1.2em;
+      }
+      .charge-bar {
+        height: 20px;
       }
     }
   </style>
-</head>
-<body>
 </head>
 <body>
 
@@ -179,8 +219,9 @@
 
   <script>
     const words = [
-      "أحبك", "سامحيني", "قلبي لك", "ضحكتك حياة", "روحي", "ذكية قلبي", 
-      "أنتِ قلبي", "عيونك نور", "اشتقت لك", "ضحكتك دواء", "ضحكتك تنورني"
+      "احبش", "سامحيني", "قلبي لش", "قمري", "روحي", "ذكية قلبي",
+      "أنتِ قلبي", "عيونش نور", "اشتقت لش", "ضحكتش دواء", "ضحكتش حياة",
+      "يا أجمل هدية", "نبض قلبي", "أنتِ سعادتي" // اقتباسات إضافية
     ];
 
     const container = document.getElementById('wordContainer');
@@ -202,22 +243,22 @@
 
       setTimeout(() => {
         fill.style.width = '25%';
-        msg.innerText = 'ابتسامتش حلوة! بس احتاج ضحكة عشان أكمل الشحن';
+        msg.innerHTML = 'ابتسامتش حلوة! بس احتاج ضحكة عشان أكمل الشحن 😋'; /* تغير بسيط في النص */
       }, 3000);
 
       setTimeout(() => {
         fill.style.width = '50%';
-        msg.innerText = 'يلاااااااا عمري اضحكي! خلي ضروسي تطلع من الفرحة';
+        msg.innerHTML = 'يلاااااااا عمري اضحكي! خلي ضروسي تطلع من الفرحة 😁'; /* تغير بسيط في النص */
       }, 6000);
 
       setTimeout(() => {
         fill.style.width = '75%';
-        msg.innerText = '😍 هييييه، طاقة الحب قربت تكتمل! شوي بس!';
+        msg.innerHTML = '😍 هييييه، طاقة الحب قربت تكتمل! شوي بس! يلا نخلص 🥳'; /* تغير بسيط في النص */
       }, 9000);
 
       setTimeout(() => {
         fill.style.width = '100%';
-        msg.innerText = 'اااااحه كيف ضحكتش حلوة! شحنت قلبي وفتحت البوابة!';
+        msg.innerHTML = 'اااااحه كيف ضحكتش حلوة! شحنت قلبي وفتحت البوابة! 🎉'; /* تغير بسيط في النص */
       }, 12000);
 
       setTimeout(() => {
